@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>exercice 6</title>
+        <meta charset="UTF-8">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    </head>
+    <body ng-app>
+        <!-- Faire une page HTML contenant un bouton Afficher et un bouton
+        Cacher. Au clic sur l'un ou sur l'autre afficher
+        ou non un paragraphe selon le choix. -->
+        <button  ng-click="myShow = true">P1</button>
+        <button  ng-click="myShow = false">P2</button>
+        <!-- ici ng-show pour un paragraphe et ng-hide pour le 2eme -->
+        <p ng-show="myShow">Paragraphe 1</p>
+        <p ng-hide="myShow">Paragraphe 2</p>
+    </body>
+</html>

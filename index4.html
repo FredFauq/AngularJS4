@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>exercice4</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body ng-app="carApp">
+  <div ng-controller="carCtrl">
+    <!-- '!' pour ne pas afficher -->
+    <div ng-repeat="car in voiture | filter: '!verte'">
+      <p>{{car.marque + ' - ' + car.couleur}}<p>
+    </div>
+  </div>
+    <!-- Faire une page HTML permettant d'afficher la liste des voitures et
+    leur couleur du fichier voiture.json uniquement si la couleur n'est pas verte.  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script>
+    var app = angular.module('carApp', []);
+    //ici il faut['$htpp', '$scope', avant la fonction
+    app.controller('carCtrl', ['$http', '$scope', function ($http, $scope) {
+      //$http.get appelle le fichier .json
+      $http.get('voiture.json')
+      .then(function (reponse) {
+        //reponse.data retourne ce qui est demander
+        $scope.voiture = reponse.data;
+      });
+    }]);
+    </script>
+  </body>
+  </html>
